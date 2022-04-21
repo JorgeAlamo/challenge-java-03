@@ -1,0 +1,15 @@
+services:
+  url:
+    config: 192.168.1.10
+    redis-cache: 192.168.1.10
+    keycloak: 192.168.1.10
+    service-payment: 192.168.1.10
+    favorite: 192.168.1.10
+    eureka: 192.168.1.10
+spring:
+  application:
+    name: payment-service
+  config:
+    import: "optional:configserver:http://${services.url.config}:8888"
+server:
+  port: 8081

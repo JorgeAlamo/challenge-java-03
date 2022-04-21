@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-auth
+spec:
+  selector:
+    matchLabels:
+      role: keycloak-auth
+  template:
+    metadata:
+      labels:
+        role: keycloak-auth
+    spec:
+      containers:
+      - name: keycloak-auth
+        image: quay.io/keycloak/keycloak:17.0.0
+        args: ["start-dev"]
+        env:
+        - name: KEYCLOAK_ADMIN
+          value: "admin"
+        - name: KEYCLOAK_ADMIN_PASSWORD
+          value: "admin"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-auth
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    role: keycloak-auth

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: favorites
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      role: favorites
+  template:
+    metadata:
+      labels:
+        role: favorites
+    spec:
+      containers:
+      - name: favorites
+        image: ajorge2893/favorites
+        env:
+        - name: SERVICES_URL_CONFIG
+          value: config-server
+        - name: SERVICES_URL_MYSQLDB
+          value: mysql-db
+        - name: SERVICES_URL_KEYCLOAK
+          value: "20.96.44.112"
+        - name: SERVICES_URL_EUREKA
+          value: eureka-server
+        ports:
+        - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: favorites
+spec:
+  ports:
+  - port: 8083
+    targetPort: 8083
+  selector:
+    role: favorites
