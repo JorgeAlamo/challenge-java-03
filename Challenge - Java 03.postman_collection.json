@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "bf1c58bc-14d1-493c-acc0-4ca6b4583563",
+		"name": "Challenge - Java 03",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Keycloak",
+			"item": [
+				{
+					"name": "Get Auth Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "service-gateway",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "qUXfFEhx62LiYS1Pyg24wFng4hF0GwPj",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "gateway",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "gateway",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://20.96.44.112:8080/realms/oauth-secure/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"20",
+								"96",
+								"44",
+								"112"
+							],
+							"port": "8080",
+							"path": [
+								"realms",
+								"oauth-secure",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API BS Service Payment V1",
+			"item": [
+				{
+					"name": "Get List of Services",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5WDVFc3pES1dUTVlnbzRJLXpBOWhWaG9BOWZYanZrQk50QldFLWlLYzg0In0.eyJleHAiOjE2NTA1MTA3NDAsImlhdCI6MTY1MDUxMDQ0MCwianRpIjoiYzc0MDY1MzYtMTRhMC00NWU4LTk1YjUtNzE4MGQ5NTQ1M2RjIiwiaXNzIjoiaHR0cDovLzIwLjk2LjQ0LjExMjo4MDgwL3JlYWxtcy9vYXV0aC1zZWN1cmUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzVhZTA4NWUtMGFkNS00MWY2LWI3ODYtYTMyZmVkYzdlODhjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2VydmljZS1nYXRld2F5Iiwic2Vzc2lvbl9zdGF0ZSI6ImUzZWQ2NTM0LTA5ZDYtNDFkYS1hYWNmLWIxYWVjZGJjMDBhZSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1vYXV0aC1zZWN1cmUiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiZTNlZDY1MzQtMDlkNi00MWRhLWFhY2YtYjFhZWNkYmMwMGFlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXRld2F5In0.PLfd2bq6v3LdfAuBHDW_nykDtOKvoBZaZRJopnderhQ_hHtdPCQ_937fIKNJ2Lwr06OuAnEA-eTuanMeZPrE9SNDh_aMZaQYh1_Br6-7AJ_9k3xk1J88mFWXlf9tjecuPaDddO9H_2uQF098Pil1HQfsKMfr1oOsHI144GFeO7nmLrs-fa6ioSn3T2L8BVf7QlcCbLVdABVwHXwD2Ak7lXLeJZG74Hn-JEH30WghzNx_NuasNK-Zz4egI9uigNNqUuStRI_A59sGBBaMsybZtowpvq4IxMOVLfrYcJOnZ2mLtA9t2vgqQRDqSZnUqlhGSzuT3i5DK31FQCFAyHfkJQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://20.122.233.8:9111/service-payment/services",
+							"protocol": "http",
+							"host": [
+								"20",
+								"122",
+								"233",
+								"8"
+							],
+							"port": "9111",
+							"path": [
+								"service-payment",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Services by Channel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5WDVFc3pES1dUTVlnbzRJLXpBOWhWaG9BOWZYanZrQk50QldFLWlLYzg0In0.eyJleHAiOjE2NTA1MDk5ODcsImlhdCI6MTY1MDUwOTY4NywianRpIjoiZTYxYjU4NDUtNTI1MS00OTgyLWFhY2ItNDA4NWRjNGYyOGQ1IiwiaXNzIjoiaHR0cDovLzIwLjk2LjQ0LjExMjo4MDgwL3JlYWxtcy9vYXV0aC1zZWN1cmUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzVhZTA4NWUtMGFkNS00MWY2LWI3ODYtYTMyZmVkYzdlODhjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2VydmljZS1nYXRld2F5Iiwic2Vzc2lvbl9zdGF0ZSI6ImNjOTY5NWYwLWIxYjUtNDNhZi05NjY2LTNlNGI0OTc1ZmQ4MiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1vYXV0aC1zZWN1cmUiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiY2M5Njk1ZjAtYjFiNS00M2FmLTk2NjYtM2U0YjQ5NzVmZDgyIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXRld2F5In0.IYkr_OU4jtbqcdNygrLN5QMvMj3Cn3Cca4Fk14-oBxHNgYUUh0WZy57dQnJ7EgyNKcWr4bUVeMxkgM4YtYJxgTHHhkYsrKjE-sogrZxvt82XoAzTtpZmugl3B4L1ADN6oPczE07qMow_QjF8aBnQoKls4PCbUy__nhzVSXNEO77nO5FBeCwHFksjSLCMFI3GZTRLkLwEUf4fO8Df8o_fNgcfUyeaOIEzoyP67spp_2OdNcgftSpxcOWLQ72cE8S08CN9Ibxjhg3JCZAN_wyGfOQGYpl1eSKoFeZueeZ8AVmSJKgs37FVSpvkRHv1xhOOca8yPBp71WVA552jQltWxg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://20.122.233.8:9111/service-payment/services/channel/bi",
+							"protocol": "http",
+							"host": [
+								"20",
+								"122",
+								"233",
+								"8"
+							],
+							"port": "9111",
+							"path": [
+								"service-payment",
+								"services",
+								"channel",
+								"bi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Transactions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5WDVFc3pES1dUTVlnbzRJLXpBOWhWaG9BOWZYanZrQk50QldFLWlLYzg0In0.eyJleHAiOjE2NTA1MTE3MzcsImlhdCI6MTY1MDUxMTQzNywianRpIjoiYjg1MzU5ZDEtYzk1YS00OWRkLWI3MWItN2M3MDEyMmJjZTllIiwiaXNzIjoiaHR0cDovLzIwLjk2LjQ0LjExMjo4MDgwL3JlYWxtcy9vYXV0aC1zZWN1cmUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzVhZTA4NWUtMGFkNS00MWY2LWI3ODYtYTMyZmVkYzdlODhjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2VydmljZS1nYXRld2F5Iiwic2Vzc2lvbl9zdGF0ZSI6IjBmNGU5Yjk5LWY3YTctNGM3Ni04ZjAzLWRkYWNhYzNkMzA3MiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1vYXV0aC1zZWN1cmUiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMGY0ZTliOTktZjdhNy00Yzc2LThmMDMtZGRhY2FjM2QzMDcyIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXRld2F5In0.bmaHPMm4eXBYNxqSp2AmrEAFtim5EG3ASAt-laKSIDIw5oZ9KwXPgC2EkPCAQJ0zallJCcoTilSAfEeBGu2PRCUGgdvVDHpgKJvIj0N9p7VzUi8V5sJayWe8zqzmhq34YxLMBO3GH55wo0AM_9qcW43wOMIEpyDhEp8Ji6Y7WtTAINC6VkD3uJf3G_bEv_bqmYpm1k4cSrmWgwMug7WWorxvTtErtfpiODlU_M68J0O_kz4r8Nw4IifHupkbElra4x8v2TdbvlniZkubR5IXtccDi9HnhT7Xf-kPgQd74-h_hf2HzLgiEFhu8EXWnhIvaovHXjgSARLwVHRjUr9ILQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://20.122.233.8:9111/service-payment/transactions",
+							"protocol": "http",
+							"host": [
+								"20",
+								"122",
+								"233",
+								"8"
+							],
+							"port": "9111",
+							"path": [
+								"service-payment",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API BS Favorites V1",
+			"item": [
+				{
+					"name": "Get List of Favorites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5WDVFc3pES1dUTVlnbzRJLXpBOWhWaG9BOWZYanZrQk50QldFLWlLYzg0In0.eyJleHAiOjE2NTA1MTE3MzcsImlhdCI6MTY1MDUxMTQzNywianRpIjoiYjg1MzU5ZDEtYzk1YS00OWRkLWI3MWItN2M3MDEyMmJjZTllIiwiaXNzIjoiaHR0cDovLzIwLjk2LjQ0LjExMjo4MDgwL3JlYWxtcy9vYXV0aC1zZWN1cmUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzVhZTA4NWUtMGFkNS00MWY2LWI3ODYtYTMyZmVkYzdlODhjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2VydmljZS1nYXRld2F5Iiwic2Vzc2lvbl9zdGF0ZSI6IjBmNGU5Yjk5LWY3YTctNGM3Ni04ZjAzLWRkYWNhYzNkMzA3MiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1vYXV0aC1zZWN1cmUiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMGY0ZTliOTktZjdhNy00Yzc2LThmMDMtZGRhY2FjM2QzMDcyIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXRld2F5In0.bmaHPMm4eXBYNxqSp2AmrEAFtim5EG3ASAt-laKSIDIw5oZ9KwXPgC2EkPCAQJ0zallJCcoTilSAfEeBGu2PRCUGgdvVDHpgKJvIj0N9p7VzUi8V5sJayWe8zqzmhq34YxLMBO3GH55wo0AM_9qcW43wOMIEpyDhEp8Ji6Y7WtTAINC6VkD3uJf3G_bEv_bqmYpm1k4cSrmWgwMug7WWorxvTtErtfpiODlU_M68J0O_kz4r8Nw4IifHupkbElra4x8v2TdbvlniZkubR5IXtccDi9HnhT7Xf-kPgQd74-h_hf2HzLgiEFhu8EXWnhIvaovHXjgSARLwVHRjUr9ILQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://20.122.233.8:9111/favorites",
+							"protocol": "http",
+							"host": [
+								"20",
+								"122",
+								"233",
+								"8"
+							],
+							"port": "9111",
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API UX Payments V1",
+			"item": [
+				{
+					"name": "Get List of Services by Channel Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5WDVFc3pES1dUTVlnbzRJLXpBOWhWaG9BOWZYanZrQk50QldFLWlLYzg0In0.eyJleHAiOjE2NTA1MTA0NjgsImlhdCI6MTY1MDUxMDE2OCwianRpIjoiMzk1MmJlNTQtNjdkMi00ZGUyLWEzMDMtYTk1NjYwNzJlZGIwIiwiaXNzIjoiaHR0cDovLzIwLjk2LjQ0LjExMjo4MDgwL3JlYWxtcy9vYXV0aC1zZWN1cmUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzVhZTA4NWUtMGFkNS00MWY2LWI3ODYtYTMyZmVkYzdlODhjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2VydmljZS1nYXRld2F5Iiwic2Vzc2lvbl9zdGF0ZSI6ImRkY2I4MDQ4LWY1YmEtNGE2NS05Y2Q5LWIwMjdkY2NkMTJiOCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1vYXV0aC1zZWN1cmUiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiZGRjYjgwNDgtZjViYS00YTY1LTljZDktYjAyN2RjY2QxMmI4IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXRld2F5In0.op5Nk3RhAFvuwoCSN7-lz9CGmrPnJOEBDEo6oDPsWHipcCjY9sOokyoTE53YO5W9m4nlYPMGHVDiKKXhjseeJlov7LnM5UodCoCs-KK8uqro-L3V0LvuCskjzyRqHLsBYoSp5XB8KmjfU3axbnhfO_n5CBS4nEMUok2MGjLU6gKHAIHDXCUWWazAjSjv32z6hSFLAIwRcQUiVenCeNczsgaEcujNJEliUHRV213FLfsMuh6AzgCUDwfHxg0UISUkvHyykS_LSsNfe2dnHyuNgT-M4QwD6jZZ4ZZYiEqzciKdNbXz6JArEsAHCMwx9EPXLSMhlMKbiu3g1cQt6gAgnQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://20.122.233.8:9111/payments/services/channel/bi",
+							"protocol": "http",
+							"host": [
+								"20",
+								"122",
+								"233",
+								"8"
+							],
+							"port": "9111",
+							"path": [
+								"payments",
+								"services",
+								"channel",
+								"bi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Transaction Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5WDVFc3pES1dUTVlnbzRJLXpBOWhWaG9BOWZYanZrQk50QldFLWlLYzg0In0.eyJleHAiOjE2NTA1MTE3MzcsImlhdCI6MTY1MDUxMTQzNywianRpIjoiYjg1MzU5ZDEtYzk1YS00OWRkLWI3MWItN2M3MDEyMmJjZTllIiwiaXNzIjoiaHR0cDovLzIwLjk2LjQ0LjExMjo4MDgwL3JlYWxtcy9vYXV0aC1zZWN1cmUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzVhZTA4NWUtMGFkNS00MWY2LWI3ODYtYTMyZmVkYzdlODhjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2VydmljZS1nYXRld2F5Iiwic2Vzc2lvbl9zdGF0ZSI6IjBmNGU5Yjk5LWY3YTctNGM3Ni04ZjAzLWRkYWNhYzNkMzA3MiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1vYXV0aC1zZWN1cmUiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMGY0ZTliOTktZjdhNy00Yzc2LThmMDMtZGRhY2FjM2QzMDcyIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXRld2F5In0.bmaHPMm4eXBYNxqSp2AmrEAFtim5EG3ASAt-laKSIDIw5oZ9KwXPgC2EkPCAQJ0zallJCcoTilSAfEeBGu2PRCUGgdvVDHpgKJvIj0N9p7VzUi8V5sJayWe8zqzmhq34YxLMBO3GH55wo0AM_9qcW43wOMIEpyDhEp8Ji6Y7WtTAINC6VkD3uJf3G_bEv_bqmYpm1k4cSrmWgwMug7WWorxvTtErtfpiODlU_M68J0O_kz4r8Nw4IifHupkbElra4x8v2TdbvlniZkubR5IXtccDi9HnhT7Xf-kPgQd74-h_hf2HzLgiEFhu8EXWnhIvaovHXjgSARLwVHRjUr9ILQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"supplyNumber\": \"5894792\",\r\n    \"serviceCod\": \"67831\",\r\n    \"amount\": 180.75,\r\n    \"clientCod\": \"JA9655K003\",\r\n    \"isFavorite\": true,\r\n    \"favoriteName\": \"Pago Win\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://20.122.233.8:9111/payments",
+							"protocol": "http",
+							"host": [
+								"20",
+								"122",
+								"233",
+								"8"
+							],
+							"port": "9111",
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
